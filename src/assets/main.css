@@ -1,0 +1,89 @@
+/* StrongPassword component styles */
+
+.password-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.password-wrapper > div {
+    max-width: 189px;
+}
+
+/* InputPassword component styles */
+
+input,
+input:focus {
+    border-radius: 0px;
+    border: 1px solid #c0c0c070;
+    padding: 5px;
+    height: 25px;
+    outline: none;
+}
+
+/* ValidSummary component styles */
+
+.validation-summary {
+    padding: 5px 0px;
+}
+
+.validation-summary .message {
+    height: 20px;
+}
+
+.validation-summary > div {
+    display: flex;
+    height: 2px;
+    background-color: #c0c0c070;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+.validation-summary > div > span {
+    display: block;
+    background-color: #c0c0c070;
+    text-indent: -999999px;
+    transition: ease all 0.3s;
+}
+
+.validation-summary > div > span.separator {
+    background: white;
+    width: 4px;
+}
+
+.validation-summary > div > span:first-child,
+.validation-summary > div > span:last-child {
+    width: 100%;
+}
+
+.validation-summary > div > span:first-child.strong {
+    background-color: #24cd7f;
+    transition: ease all 0.3s;
+}
+
+.validation-summary > div > span:last-child.weak {
+    background-color: #e76d6d;
+    transition: ease all 0.3s;
+}
+
+/* HintRules component styles */
+
+.validation-hint-rules ul {
+    list-style-type: none;
+    padding: 0;
+    color: #b1b1b1;
+}
+
+.validation-hint-rules ul li {
+    display: flex;
+    padding: 3px 0px;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.validation-password-field label {
+    display: block;
+}
