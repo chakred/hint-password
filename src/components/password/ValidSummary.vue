@@ -15,6 +15,6 @@ const { isPassStrong } = storeToRefs(store);
       <span class="separator">*</span>
       <span :class="store.getValidRuleStatus">*</span>
     </div>
-    <p class="message">{{StrengthOptionLabel[store.getValidRuleStatus]}}</p>
+    <p class="message" data-test="validation-summary">{{StrengthOptionLabel[store.getValidRuleStatus]}}</p>
   </div>
 </template>

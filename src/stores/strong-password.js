@@ -78,7 +78,7 @@ export const useStrongPasswordStore = defineStore('strong_password', {
         },
 
         checkHasSpecial() {
-            this.rules[RULE.SpecialSymbol] = /[!@#\$%\^\&*\)\(+=._-]/.test(this.password);
+            this.rules[RULE.SpecialSymbol] = /[!@#\$%\^\&*\)\(+=._ -]/.test(this.password);
         },
 
         checkPassStrength() {
@@ -93,10 +93,10 @@ export const useStrongPasswordStore = defineStore('strong_password', {
 
             if (this.password.length < 1) {
                 this.isPassStrong = '';
-            } else if (this.password.lengt < 4) {
+            } else if (this.password.length < 4) {
               this.isPassStrong = StrengthOption.Weak;
             } else {
-                this.isPassStrong = count >= 4 ? StrengthOption.Strong : StrengthOption.Weak;
+                this.isPassStrong = count > 4 ? StrengthOption.Strong : StrengthOption.Weak;
             }
         }
     },
