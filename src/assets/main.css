@@ -30,6 +30,7 @@ input:focus {
 
 .validation-summary .message {
     height: 20px;
+    font-size: 14px;
 }
 
 .validation-summary > div {

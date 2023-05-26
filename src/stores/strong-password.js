@@ -13,6 +13,7 @@ export const useStrongPasswordStore = defineStore('strong_password', {
             [RULE.SpecialSymbol]: false,
             [RULE.UpperAndLower]: false,
             [RULE.OneNumber]: false,
+            [RULE.OneLetter]: false,
             [RULE.LongerThan4]: false,
             [RULE.LongerThan8]: false,
             [RULE.LongerThan12]: false,
@@ -53,14 +54,19 @@ export const useStrongPasswordStore = defineStore('strong_password', {
             this.checkMinLength();
             this.checkHasLowerAndUppercase();
             this.checkHasNumber();
+            this.checkHasOneLetter();
             this.checkHasSpecial();
             this.checkPassStrength();
         },
 
         checkMinLength() {
-            this.rules[RULE.LongerThan4] = (this.password.length > 4)
-            this.rules[RULE.LongerThan8] = (this.password.length > 8)
-            this.rules[RULE.LongerThan12] = (this.password.length > 12)
+            this.rules[RULE.LongerThan4] = (this.password.length > 4);
+            this.rules[RULE.LongerThan8] = (this.password.length > 8);
+            this.rules[RULE.LongerThan12] = (this.password.length > 12);
+        },
+
+        checkHasOneLetter() {
+          this.rules[RULE.OneLetter] = /[A-Za-z]/.test(this.password);
         },
 
         checkHasLowerAndUppercase() {
@@ -85,10 +91,12 @@ export const useStrongPasswordStore = defineStore('strong_password', {
                 }
             }
 
-            if (count < 1) {
+            if (this.password.length < 1) {
                 this.isPassStrong = '';
+            } else if (this.password.lengt < 4) {
+              this.isPassStrong = StrengthOption.Weak;
             } else {
-                this.isPassStrong = count >= 4 ? StrengthOption.Strong : StrengthOption.Weak
+                this.isPassStrong = count >= 4 ? StrengthOption.Strong : StrengthOption.Weak;
             }
         }
     },

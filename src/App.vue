@@ -1,5 +1,5 @@
 <script setup>
-import StrongPassword from "@/components/StrongPassword.vue";
+import StrongPassword from "@/components/password/StrongPassword.vue";
 </script>
 
 <template>
